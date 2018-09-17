@@ -370,3 +370,8 @@ ASALocalRun/
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+
+# VSCode workspace code files #
+######################
+.code-workspace
