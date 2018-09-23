@@ -1,18 +1,29 @@
 #!/usr/bin/env python3
+def inclusive_range(*args):
+    numargs = len(args)
+    start = 0
+    step = 1
+    
+    # initialize parameters
+    if numargs < 1:
+        raise TypeError(f'expected at least 1 argument, got {numargs}')
+    elif numargs == 1:
+        stop = args[0]
+    elif numargs == 2:
+        (start, stop) = args
+    elif numargs == 3:
+        (start, stop, step) = args
+    else: raise TypeError(f'expected at most 3 arguments, got {numargs}')
+
+    # generator
+    i = start
+    while i <= stop:
+        yield i
+        i += step
 
 def main():
-    #game = ['Ludo', 'Snakes and Ladders', 'Card', 'I Call On', 'Monopoly']
-    animal_sounds = {'kitten':'meows', 'puppy':'ruff!', 'lion':'roars'}
-    #print_list(game)
-    #print_animal_sounds(animal_sounds)
-    for v in animal_sounds.values(): print(v)
-    for k in animal_sounds.keys(): print(k)
-    
-def print_list(x_game):
-    for i in x_game: print(i, end = ' ', flush=True)
-    
-def print_animal_sounds(sounds):
-    for k,v in sounds.items():
-        print(f' {k} : {v}')
+    for i in inclusive_range(25):
+        print(i, end = ' ', flush = True)
+    print()
 
 if __name__ == '__main__': main()
